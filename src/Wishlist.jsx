@@ -11,7 +11,7 @@ function Wishlist({ email }) {
 
   const fetchWishlist = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/wishlist?email=${email}`);
+      const response = await axios.get(`https://backend-bookstore-ydjh.onrender.com/wishlist?email=${email}`);
       setWishlist(response.data);
     } catch (error) {
       console.error('Error fetching wishlist:', error);
@@ -20,7 +20,7 @@ function Wishlist({ email }) {
 
   const removeFromWishlist = async (bookId) => {
     try {
-      await axios.post('http://localhost:5000/remove-from-wishlist', { email, bookId });
+      await axios.post('https://backend-bookstore-ydjh.onrender.com/remove-from-wishlist', { email, bookId });
       setWishlist(wishlist.filter(book => book._id !== bookId)); // Update local state
     } catch (error) {
       console.error('Error removing from wishlist:', error);
@@ -29,7 +29,7 @@ function Wishlist({ email }) {
 
   const buyBook = async (bookId) => {
     try {
-      await axios.post('http://localhost:5000/buy-book', { email, bookId });
+      await axios.post('https://backend-bookstore-ydjh.onrender.com/buy-book', { email, bookId });
       fetchWishlist(); // Refresh the wishlist to update book copies
     } catch (error) {
       console.error('Error buying book:', error);

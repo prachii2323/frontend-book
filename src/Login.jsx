@@ -12,7 +12,7 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await axios.post('http://localhost:5000/login', { email, password });
+    const response = await axios.post('https://backend-bookstore-ydjh.onrender.com/login', { email, password });
     setMessage(response.data.message);
     if (response.data.message.includes('admin')) {
       localStorage.setItem('email', email);
