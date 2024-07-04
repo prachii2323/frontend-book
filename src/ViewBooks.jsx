@@ -12,7 +12,7 @@ function ViewBooks() {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('https://backend-bookstore-ydjh.onrender.com/books'); // Adjust the endpoint as needed
+      const response = await axios.get('https://backend-bookstore1.onrender.com/books'); // Adjust the endpoint as needed
       console.log('Fetched books:', response.data); // Debug log
       setBooks(response.data);
     } catch (error) {
@@ -30,7 +30,7 @@ function ViewBooks() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://backend-bookstore-ydjh.onrender.com/books/${id}`);
+      await axios.delete(`https://backend-bookstore1.onrender.com/books/${id}`);
       setBooks(books.filter(book => book._id !== id));
     } catch (error) {
       console.error('Error deleting book:', error);

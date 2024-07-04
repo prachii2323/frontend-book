@@ -55,7 +55,7 @@ function AdminDashboard() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('https://backend-bookstore-ydjh.onrender.com/users');
+      const response = await axios.get('https://backend-bookstore1.onrender.com/users');
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -64,7 +64,7 @@ function AdminDashboard() {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('https://backend-bookstore-ydjh.onrender.com/books');
+      const response = await axios.get('https://backend-bookstore1.onrender.com/books');
       setBooks(response.data);
     } catch (error) {
       console.error('Error fetching books:', error);
@@ -73,7 +73,7 @@ function AdminDashboard() {
 
   const handleAddBookSubmit = async () => {
     try {
-      await axios.post('https://backend-bookstore-ydjh.onrender.com/add-book', newBook);
+      await axios.post('https://backend-bookstore1.onrender.com/add-book', newBook);
       setAddBookDialogOpen(false);
       setNewBook({
         title: '',
@@ -109,7 +109,7 @@ function AdminDashboard() {
   const confirmDelete = async () => {
     if (selectedUser) {
       try {
-        await axios.post('https://backend-bookstore-ydjh.onrender.com/delete-user', { email: selectedUser.email });
+        await axios.post('https://backend-bookstore1.onrender.com/delete-user', { email: selectedUser.email });
         setUsers(users.filter(user => user._id !== selectedUser._id));
         setDeleteDialogOpen(false);
       } catch (error) {
@@ -120,7 +120,7 @@ function AdminDashboard() {
 
   const handleUpdateUser = async () => {
     try {
-      await axios.post('https://backend-bookstore-ydjh.onrender.com/update-user', {
+      await axios.post('https://backend-bookstore1.onrender.com/update-user', {
         id: selectedUser._id,
         name: updatedUser.name,
         email: updatedUser.email,

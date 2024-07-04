@@ -64,7 +64,7 @@ function UserDashboard() {
 
   const fetchBooks = async (query = '') => {
     try {
-      const response = await axios.get('https://backend-bookstore-ydjh.onrender.com/books', { params: { search: query } });
+      const response = await axios.get('https://backend-bookstore1.onrender.com/books', { params: { search: query } });
       setBooks(response.data);
     } catch (error) {
       console.error('Error fetching books:', error);
@@ -74,7 +74,7 @@ function UserDashboard() {
   const fetchWishlist = async () => {
     try {
       const email = localStorage.getItem('email');
-      const response = await axios.get('https://backend-bookstore-ydjh.onrender.com/wishlist', { params: { email } });
+      const response = await axios.get('https://backend-bookstore1.onrender.com/wishlist', { params: { email } });
       setWishlistBooks(response.data);
     } catch (error) {
       console.error('Error fetching wishlist:', error);
@@ -83,7 +83,7 @@ function UserDashboard() {
 
   const handleLogout = async () => {
     const email = localStorage.getItem('email');
-    await axios.post('https://backend-bookstore-ydjh.onrender.com/logout', { email });
+    await axios.post('https://backend-bookstore1.onrender.com/logout', { email });
     localStorage.removeItem('email');
     navigate('/register');
   };
@@ -122,7 +122,7 @@ function UserDashboard() {
     e.preventDefault();
     try {
       const email = localStorage.getItem('email');
-      const response = await axios.post('https://backend-bookstore-ydjh.onrender.com/buy-book', {
+      const response = await axios.post('https://backend-bookstore1.onrender.com/buy-book', {
         email,
         bookId: selectedBookId,
         name: formData.name,
@@ -147,7 +147,7 @@ function UserDashboard() {
   const handleAddToWishlist = async (bookId) => {
     try {
       const email = localStorage.getItem('email');
-      const response = await axios.post('https://backend-bookstore-ydjh.onrender.com/wishlist', { email, bookId });
+      const response = await axios.post('https://backend-bookstore1.onrender.com/wishlist', { email, bookId });
 
       if (response.data.success) {
         setNotification({ show: true, message: 'Added to wishlist!' });
@@ -164,7 +164,7 @@ function UserDashboard() {
   const handleRemoveFromWishlist = async (bookId) => {
     try {
       const email = localStorage.getItem('email');
-      const response = await axios.delete('https://backend-bookstore-ydjh.onrender.com/wishlist', { data: { email, bookId } });
+      const response = await axios.delete('https://backend-bookstore1.onrender.com/wishlist', { data: { email, bookId } });
 
       if (response.data.success) {
         setNotification({ show: true, message: 'Removed from wishlist!' });

@@ -19,7 +19,7 @@ function HomePage() {
 
   const fetchBooks = async (query = '') => {
     try {
-      const response = await axios.get('https://backend-bookstore-ydjh.onrender.com/books?search=/books', { params: { search: query } });
+      const response = await axios.get('https://backend-bookstore1.onrender.com/books', { params: { search: query } });
       setBooks(response.data);
     } catch (error) {
       console.error('Error fetching books:', error);

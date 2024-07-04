@@ -20,7 +20,7 @@ function Register() {
       setMessage('Passwords do not match');
       return;
     }
-    const response = await axios.post('https://backend-bookstore-ydjh.onrender.com/register', { name, phone, email, username, password });
+    const response = await axios.post('https://backend-bookstore1.onrender.com/register', { name, phone, email, username, password });
     setMessage(response.data.message);
     navigate('/login');
   };
